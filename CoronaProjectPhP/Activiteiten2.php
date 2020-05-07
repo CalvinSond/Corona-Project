@@ -7,10 +7,13 @@ $sql = "SELECT * FROM activiteiten WHERE activiteit_titel = '{$_POST['activiteit
 $resultaat = mysqli_query($db, $sql);
 $activiteit = mysqli_fetch_assoc($resultaat);
 
-
 if($_POST['activiteit'] == $activiteit['activiteit_titel'])
 {
-    echo "Dit is toegestaan";
+    echo $activiteit['activiteit_titel']. " is toegestaan";
+    echo "<br>";
+    echo "<br>";
+
+   echo $activiteit['activiteit_inhoud'];
 }else
     {
         echo "Helaas, " . $_POST['activiteit'] . " is nu niet toegestaan";
