@@ -1,9 +1,20 @@
 <?php
 if (isset($_POST['uploadButton'])) {
     require 'dbh.inc.php';
+<<<<<<< Updated upstream
     $activiteitTitel = $_POST['titelInvoer'];
     $activiteitText = $_POST['textInvoer'];
     $tijd = time();
+=======
+    session_start();
+    $gebruikersId = $_SESSION['gebruikersId'];
+    $activiteitTitel = $_POST['titelInvoer'];
+    $activiteitText = $_POST['textInvoer'];
+    $activiteitUploaddatum = time();
+    $activiteitLocatie = $_POST['locatieInvoer'];
+    $activiteitOrganisator = $_POST['locatieInvoer'];
+    $activiteitLink = $_POST['linkInvoer'];
+>>>>>>> Stashed changes
     if (empty($activiteitTitel) || empty($activiteitText)) {
         header("Location: ../webpaginas/editor.php?error=emptyfields");
     } else if (empty($activiteitTitel)) {
@@ -18,12 +29,21 @@ if (isset($_POST['uploadButton'])) {
             exit();
         }
         else{
+<<<<<<< Updated upstream
             mysqli_stmt_bind_param($stmt, "isissss", $username);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_store_result($stmt);
             $resultCheck = mysqli_stmt_num_rows($stmt);
         }
 
+=======
+            mysqli_stmt_bind_param($stmt, "isissss", $gebruikersId, $activiteitTitel, $activiteitUploaddatum, $activiteitText, $activiteitLocatie, $activiteitOrganisator, $activiteitLink);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+            $resultCheck = mysqli_stmt_num_rows($stmt);
+            header("Location: ../webpaginas/editor.php?upload=succes");
+        }
+>>>>>>> Stashed changes
     }
 } else {
     header("Location: ../webpaginas/index.php");

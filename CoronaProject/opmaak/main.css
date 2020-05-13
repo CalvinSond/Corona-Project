@@ -1,6 +1,7 @@
 body {
     font-family: Arial;
 }
+<<<<<<< Updated upstream
 .container {
     width: 500px;
     margin: 0 auto;
@@ -8,16 +9,35 @@ body {
     overflow-y: scroll;
     width: 80%;
 }
+=======
+
+h1, p {
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+    padding-top: 50px;
+    font-size: 20px;
+    margin-left: 150px;
+}
+
+>>>>>>> Stashed changes
 a:link, a:visited {
     color: slategray;
     text-decoration: none;
     border-bottom: 1px dotted slategray;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 a:hover {
     color: #444;
     border-bottom-color: #444;
 }
 
+<<<<<<< Updated upstream
 .inputStyling {
     //width: 100%;
     padding: 12px 20px;
@@ -25,10 +45,111 @@ a:hover {
     box-sizing: border-box;
     //background-color: green;
 }
+=======
+input, .inputStyling {
+    margin: 8px 0;
+    box-sizing: border-box;
+    display: block;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+textarea {
+    resize: none;
+}
+
+.centerContent {
+    margin: 0 auto;
+}
+
+.container {
+    width: 500px;
+    margin: 0 auto;
+    height: auto;
+    overflow-y: scroll;
+    width: 80%;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+>>>>>>> Stashed changes
 .signupform {
     margin: 0 auto;
     width: 10%;
 }
+<<<<<<< Updated upstream
 textarea {
     resize: none;
 }
+=======
+
+.activiteitenInput {
+    width: 100%;
+    height: 30%;
+    background-color: blue;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: greenyellow;
+}
+
+.overzicht {
+    height: 500px;
+    border: 1px solid black;
+}
+
+rightul {
+    position: absolute;
+    top: 100px;
+    right: 70px;
+}
+
+
+
+
+
+>>>>>>> Stashed changes

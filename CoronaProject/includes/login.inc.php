@@ -5,7 +5,11 @@ if(isset($_POST['login-submit'])) {
     $mailNaam = $_POST['gebruikersmail'];
     $wachtwoord = $_POST['wachtwoord'];
 
+<<<<<<< Updated upstream
     if (empty($mailNaam) || empty($mailNaam)){
+=======
+    if (empty($mailNaam) || empty($wachtwoord)){
+>>>>>>> Stashed changes
         header("Location: ../webpaginas/index.php?error=emptyfields");
         exit();
     } else {
