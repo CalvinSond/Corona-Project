@@ -1,0 +1,22 @@
+:root
+{
+    --headerHeight: 100px;
+    --headerColor: #3c59aa;
+}
+.header {
+    /*display: none; */
+    padding-bottom: 120px;
+    position: relative;
+    top: -20px;
+}
+.dropDownHeader {
+    display: none;
+    text-align: left;
+    width: 100%;
+    background-color: red;
+}
+.mainHeader {
+    width: 100%;
+    background-color: var(--headerColor);
+    height: var(--headerHeight);
+}
