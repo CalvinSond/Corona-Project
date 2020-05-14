@@ -11,107 +11,67 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="../opmaak/main.css">
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     <link rel="stylesheet" href="../opmaak/header.css">
 </head>
 <body>
-<header class="mainHeader">
-    <nav>
-<<<<<<< Updated upstream
-        <a href="#">
-            <img src="#">
-        </a>
-=======
->>>>>>> Stashed changes
-        <ul class="dropDownHeader">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Activiteiten</a></li>
-            <li><a href="#">Over ons</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <div>
-            <?php
-<<<<<<< Updated upstream
-                if (empty($_SESSION)) {
-                    echo '<form action="../includes/login.inc.php" method="post" style="float: left">
-                        <input type="text" name="gebruikersmail" placeholder="gebruikersnaam/email">
-                        <input type="password" name="wachtwoord" placeholder="wachtwoord">
-                        <button type="submit" name="login-submit">Log in</button>
-                        </form>
-                        <a href="signup.php" style="float: left">Sign up</a> ';
-                }
-                if (isset($_SESSION['gebruikersNaam'])) {
-                    echo ' <p style="float: left">'.$_SESSION['gebruikersNaam'].'</p>
-                        <form action="../includes/logout.inc.php" method="post" style="float: left">
-                        <button type="submit" name="logout-submit">Log out</button>
-                      </form> 
-                      <form action="editor">
-                        <input type="submit" value="editor ">
-                      </form>';
-                }
-                echo time();
-            ?>
-        </div>
-    </nav>
-    <button onclick="dropDown()" class="inputStyling"></button>
-=======
-            if (empty($_SESSION)) {
-                echo '<form action="../includes/login.inc.php" method="post" style="float: left">
-                        <input type="text" name="gebruikersmail" placeholder="gebruikersnaam/email">
-                        <input type="password" name="wachtwoord" placeholder="wachtwoord">
-                        <button type="submit" name="login-submit" class="inputStyling">Log in</button>
-                        </form>
-                        <a href="signup.php" style="float: left">Sign up</a> ';
-            }
-            if (isset($_SESSION['gebruikersNaam'])) {
-                echo ' <p style="float: left">Je bent ingelogd als ' . $_SESSION['gebruikersNaam'] . '</p>
-                        <form action="../includes/logout.inc.php" method="post" style="float: left">
-                        <button type="submit" name="logout-submit" class="inputStyling">Log out</button>
-                      </form> 
-                      
-';
-                if (!strpos($_SERVER['REQUEST_URI'], 'editor.php')) {
-                    echo '<form action="editor.php">
-                        <button type="submit" class="inputStyling">editor</button>
-                      </form>';
-                }
-                if (!strpos($_SERVER['REQUEST_URI'], 'overzicht.php')) {
-                    echo '
-                        <form action="overzicht.php">
-                            <button type="submit" class="inputStyling">overzicht</button>
-                        </form>';
-                }
-            }
-
-
-            if (!strpos($_SERVER['REQUEST_URI'], 'index.php')) {
-                echo '
-                        <form action="index.php">
-                            <button type="submit" class="inputStyling">Homepage</button>
-                        </form>';
-            }
-            ?>
-        </div>
-    </nav>
-    <!-- <button onclick="dropDown()" class="inputStyling"></button> -->
->>>>>>> Stashed changes
-</header>
-
-<script>
-    function dropDown() {
-        var all = document.getElementsByClassName('dropDownHeader');
-        for (var i = 0; i < all.length; i++) {
-            if (all[i].style.display === "none") {
-                all[i].style.display = "block";
-                all[i].style.transitionDuration = "1s";
-
-            } else {
-                all[i].style.display = "none";
-                all[i].style.transitionDuration = "1s";
-            }
+<header class="header">
+    <ul class="horizontalList">
+        <?php
+        if (!strpos($_SERVER['REQUEST_URI'], 'index.php')) {
+            echo '
+                        <li><form action="index.php">
+                            <button type="submit" class="inputStyling headerbtn">Homepage</button>
+                        </form></li>';
         }
-    }
-</script>
+
+        if (empty($_SESSION)) {
+            echo '<form action="../includes/login.inc.php" method="post" >
+                    <ul class="horizontalList">
+                        <li><input type="text" name="gebruikersmail" placeholder="gebruikersnaam/email" class="headerbtn"></li>
+                        <li><input type="password" name="wachtwoord" placeholder="wachtwoord" class="headerbtn"></li>
+                        <li><button type="submit" name="login-submit" class="inputStyling headerbtn">Log in</button></li>
+                    </ul>
+                   </form>
+                        ';
+        }
+        if (isset($_SESSION['gebruikersNaam'])) {
+            if (!strpos($_SERVER['REQUEST_URI'], 'editor.php')) {
+                echo '<li><form action="editor.php">
+                        <button type="submit" class="inputStyling headerbtn">editor</button>
+                      </form></li>';
+            }
+            if (!strpos($_SERVER['REQUEST_URI'], 'overzicht.php')) {
+                echo '
+                        <li><form action="overzicht.php">
+                            <button type="submit" class="inputStyling headerbtn">overzicht</button>
+                        </form></li>';
+            }
+            echo '<li>
+                    <form action="../includes/logout.inc.php" method="post">
+                        <ul class="horizontalList">
+                            <li><button type="submit" name="logout-submit" class="inputStyling headerbtn">Log out</button></li>
+                            <li><p style="margin-top: 35px; color: white">Je bent ingelogd als ' . $_SESSION['gebruikersNaam'] . '</p> </li> 
+                        </ul>
+                    </form>
+                  </li>';
+
+        }
+        echo '
+            <form name="form" action="../includes/activiteiten.inc.php" method="post">
+                <ul class="horizontalList">
+                    <li><input type="hidden" name="url" value='.$_SERVER['REQUEST_URI'].'></li>
+                    <li><input class="headerbtn" type="text" name="activiteit" id="activiteit" placeholder="Voer hier uw activiteit in: " required></li>
+                    <li><input class="headerbtn" type="submit" id="go" value="Kan ik dit nu doen?"></li>
+                </ul>
+            </form>';
+            if (isset($_GET['result'])) {
+                if ($_GET['result'] == "toegestaan") {
+                    echo "<li><p class='green headerbtn'>Dit is toegestaan</p></li>";
+                } else if ($_GET['result'] == "niettoegestaan") {
+                    echo "<li><p class='red headerbtn'>Dit is niet toegestaan</p></li>";
+                }
+            }
+        ?>
+    </ul>
+</header>
+<div class="container">

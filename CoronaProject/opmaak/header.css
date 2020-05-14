@@ -4,10 +4,9 @@
     --headerColor: #3c59aa;
 }
 .header {
-    /*display: none; */
-    padding-bottom: 120px;
-    position: relative;
-    top: -20px;
+    width: 100%;
+    background-color: var(--headerColor);
+    height: var(--headerHeight);
 }
 .dropDownHeader {
     display: none;
@@ -15,8 +14,7 @@
     width: 100%;
     background-color: red;
 }
-.mainHeader {
-    width: 100%;
-    background-color: var(--headerColor);
-    height: var(--headerHeight);
+
+.headerbtn{
+    margin: 20px 25px;
 }

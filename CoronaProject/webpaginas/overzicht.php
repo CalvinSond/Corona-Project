@@ -18,7 +18,8 @@ if (isset($_SESSION['gebruikersNaam'])) {
                         <ol>
                             <li><a href="artikel.php" id="' . $row['activiteitId'] . '">' . $row['activiteitTitel'] . '</a>
                             - <small>geplaatst op ' . $uploaddatum . '</small>
-                            <form action="editor.php" method="post"><button type="submit" name="activiteitId" value="' . $row['activiteitId'] . '" class="inputStyling">Bewerk</button></form>
+                            <form action="editor.php" method="post"><button type="submit" name="activiteitBewerkBtnId" value="' . $row['activiteitId'] . '" class="inputStyling">Bewerk</button></form>
+                            <form action="../includes/delete.inc.php" method="post"><button type="submit" name="deleteBtn" value="' . $row['activiteitId'] . '" class="inputStyling" style="color: red">Verwijder</button></form>
                             </li>
                         </ol>
                       </div>';
@@ -28,7 +29,7 @@ if (isset($_SESSION['gebruikersNaam'])) {
     </main>
     <?php
 } else {
-    echo ' <h1 class="red"> Acces denied </h1> <script> setTimeout(function(){window.location.href = "http://localhost/php/CoronaProject/webpaginas/index.php"}, 3 * 1000); </script> ';
+    header("Location:index.php?error=accesdenied");
     exit();
 }
 include_once("../opmaak/footer.php");
